@@ -32,7 +32,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
         time=int(h)*3600+int(m)*60+int(s)
         for i in range(1, 100):
             if str(sheet["A"+str(i)].value)==str(message.author.id):
-                if(sheet["B"+str(i)].value != None:
+                if(sheet["B"+str(i)].value != None):
                     if(int(sheet["B"+str(i)].value)>time-600):
                         await client.send_message(discord.utils.get(client.get_all_members(), id=str(message.author.id)), str(600-time+int(sheet["B"+str(i)].value))+"seconds remaning")
                         return
