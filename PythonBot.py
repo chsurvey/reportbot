@@ -48,8 +48,8 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         channel = client.get_channel(558908366739734530)
                         await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                     else:
-                         print(message.author.name+"("+str(message.author.id)+") : ")
-                         print(message.content)
+                        print(message.author.name+"("+str(message.author.id)+") : ")
+                        print(message.content)
                         channel = client.get_channel(558908366739734530)
                         await channel.send(message.author.name+" : ")
                         await channel.send(message.content)#관리자에게 메세지가 가는 방식.
