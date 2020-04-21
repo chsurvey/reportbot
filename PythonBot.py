@@ -34,6 +34,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 if(sheet["B"+str(i)].value != None):
                     if(int(sheet["B"+str(i)].value)>time-600):
                         print(message.content)
+                        print(Message.Content.Contains)
                         await message.channel.send(str(600-time+int(sheet["B"+str(i)].value))+"초 후에 문의 가능합니다.")#관리자에게 메세지가 가는 방식.
                         return
                 else:
@@ -43,6 +44,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     file.save("cooltime.xlsx")
                     await message.channel.send('접수완료')
                     print(message.author.id)
+                    print(Message.Content.Contains)
                     channel = client.get_channel(558908366739734530)
                     await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                     return
@@ -52,6 +54,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 sheet["A"+str(j)].value=str(message.author.id)
                 sheet["D"+str(j)].value=str(time)
                 print(message.author.id)
+                print(Message.Content.Contains)
                 await message.channel.send('접수완료')
                 channel = client.get_channel(558908366739734530)
                 await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식. 아이디는 제꺼
