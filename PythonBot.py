@@ -22,7 +22,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
         return
     if  (message.channel.type is discord.ChannelType.private): #and message.author.id!="700608102269059083":#제 봇 아이디
         await message.channel.send('접수완료')
-        channel = client.get_channel(559040952648466432)
+        channel = client.get_channel(558908366739734530)
         await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식. 아이디는 제꺼
         """file = openpyxl.load_workbook("C:\\Users\\user\\Documents\\GitHub\\simple-twitch-chat-replay-downloader\\cooltime.xlsx")
         sheet = file.active
