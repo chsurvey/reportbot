@@ -19,9 +19,6 @@ async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니�
 async def on_message(message): # 메시지가 들어 올 때마다 가동되는 구문입니다.
     if(message.author.bot):
         return
-    if message.attachments and (message.channel.type is discord.ChannelType.private):
-        await message.channel.send("이미지는 보낼 수 없습니다")  
-        return
     if 'http' in message.content and (message.channel.type is discord.ChannelType.private):
         await message.channel.send("링크는 보낼 수 없습니다")  
         return
