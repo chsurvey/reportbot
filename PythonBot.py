@@ -46,6 +46,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     return
         for j in range(1,100):
             if sheet["A"+str(j)].value==None:
+                print("아이디넣었음")
                 sheet["A"+str(j)].value=message.author.id
                 sheet["D"+str(j)].value=str(time)
                 channel = client.get_channel(558908366739734530)
