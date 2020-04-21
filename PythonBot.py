@@ -2,6 +2,7 @@
 import discord
 import asyncio # 디스코드 모듈과, 보조 모듈인 asyncio를 불러옵니다.
 import datetime
+import os
 import openpyxl
 
 token = "NzAwNjA4MTAyMjY5MDU5MDgz.Xp2TVQ.5ImyMhximcQ-iCjafwDQaL8s_cE" # 아까 메모해 둔 토큰을 입력합니다
@@ -52,4 +53,5 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식. 아이디는 제꺼
                 file.save("cooltime.xlsx")
                 return"""
-client.run(token) # 아까 넣어놓은 토큰 가져다가 봇을 실행하라는 부분입니다. 이 코드 없으면 구문이 아무리 완벽해도 실행되지 않습니다.
+accsess_token=os.environ["BOT_TOKEN"]
+client.run(access_token) # 아까 넣어놓은 토큰 가져다가 봇을 실행하라는 부분입니다. 이 코드 없으면 구문이 아무리 완벽해도 실행되지 않습니다.
