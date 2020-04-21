@@ -20,7 +20,6 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
     if(message.author.bot):
         return
     if  (message.channel.type is discord.ChannelType.private): #and message.author.id!="700608102269059083":#제 봇 아이디
-        await message.channel.send('접수완료')
         #channel = client.get_channel(558908366739734530)
         #await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
         file = openpyxl.load_workbook("cooltime.xlsx")
@@ -34,7 +33,8 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
             if str(sheet["A"+str(i)].value)==str(message.author.id):
                 if(sheet["B"+str(i)].value != None):
                     if(int(sheet["B"+str(i)].value)>time-600):
-                        await client.send_message(discord.utils.get(client.get_all_members(), id=str(message.author.id)), str(600-time+int(sheet["B"+str(i)].value))+"seconds remaning")
+                        print(message.content)
+                        await message.channel.send(str(600-time+int(sheet["B"+str(i)].value))+"초 후에 문의 가능합니다.")#관리자에게 메세지가 가는 방식.
                         return
                 else:
                     sheet["B"+str(i)].value=sheet["C"+str(i)].value
@@ -42,6 +42,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     sheet["D"+str(i)].value=str(time)
                     file.save("cooltime.xlsx")
                     await message.channel.send('접수완료')
+                    print(message.author.id)
                     channel = client.get_channel(558908366739734530)
                     await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                     return
@@ -50,6 +51,8 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 print("아이디넣었음")
                 sheet["A"+str(j)].value=str(message.author.id)
                 sheet["D"+str(j)].value=str(time)
+                print(message.author.id)
+                await message.channel.send('접수완료')
                 channel = client.get_channel(558908366739734530)
                 await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식. 아이디는 제꺼
                 file.save("cooltime.xlsx")
