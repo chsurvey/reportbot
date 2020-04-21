@@ -36,7 +36,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
             if str(sheet["A"+str(i)].value)==str(message.author.id):
                 if(sheet["B"+str(i)].value != None):
                     if(int(sheet["B"+str(i)].value)>time-600):
-                        print(message.content)
+                        print(message.author.name+"("+str(message.author.id)+") : "+message.content)
                         await message.channel.send(str(600-time+int(sheet["B"+str(i)].value))+"초 후에 문의 가능합니다.")#관리자에게 메세지가 가는 방식.
                         return
                 else:
