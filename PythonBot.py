@@ -22,7 +22,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
     if message.attachments and (message.channel.type is discord.ChannelType.private):
         await message.channel.send("이미지는 보낼 수 없습니다")  
         return
-    if 'http' in message.content: and (message.channel.type is discord.ChannelType.private):
+    if 'http' in message.content and (message.channel.type is discord.ChannelType.private):
         await message.channel.send("는 보낼 수 없습니다")  
         return
     if  (message.channel.type is discord.ChannelType.private): #and message.author.id!="700608102269059083":#제 봇 아이디
