@@ -5,7 +5,6 @@ import datetime
 import os
 import openpyxl
 
-token = "NzAwNjA4MTAyMjY5MDU5MDgz.Xp2TVQ.5ImyMhximcQ-iCjafwDQaL8s_cE" # 아까 메모해 둔 토큰을 입력합니다
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
 
 @client.event
