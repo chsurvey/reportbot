@@ -69,7 +69,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 else:
                     print(message.author.name+"("+str(message.author.id)+") : ")
                     channel = client.get_channel(558908366739734530)
-                    await channel.send(message.author.name+" : ")
+                    await channel.send(message.attachments)
                     for i in range(len(message.attachments)):
                         print(message.attachments[i].url)
                         channel = client.get_channel(558908366739734530)
