@@ -37,24 +37,25 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         print(message.author.name+"("+str(message.author.id)+") : "+message.content)
                         await message.channel.send(str(600-time+int(sheet["B"+str(i)].value))+"초 후에 문의 가능합니다.")#관리자에게 메세지가 가는 방식.
                         return
+            else:
+                sheet["B"+str(i)].value=sheet["C"+str(i)].value
+                sheet["C"+str(i)].value=sheet["D"+str(i)].value
+                sheet["D"+str(i)].value=str(time)
+                file.save("cooltime.xlsx")
+                await message.channel.send('접수완료')
+                if not message.attachments:
+                    print(message.author.name+"("+str(message.author.id)+") : "+message.content)
+                    channel = client.get_channel(702387567546466304)
+                    await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
+                    return
                 else:
-                    sheet["B"+str(i)].value=sheet["C"+str(i)].value
-                    sheet["C"+str(i)].value=sheet["D"+str(i)].value
-                    sheet["D"+str(i)].value=str(time)
-                    file.save("cooltime.xlsx")
-                    await message.channel.send('접수완료')
-                    if not message.attachments:
-                        print(message.author.name+"("+str(message.author.id)+") : "+message.content)
+                    print(message.author.name+"("+str(message.author.id)+") : ")
+                    channel = client.get_channel(702387567546466304)
+                    await channel.send(message.author.name+" : ")
+                    for i in range(len(message.attachments)):
+                        print(message.attachments[i].url)
                         channel = client.get_channel(702387567546466304)
-                        await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
-                    else:
-                        print(message.author.name+"("+str(message.author.id)+") : ")
-                        channel = client.get_channel(702387567546466304)
-                        await channel.send(message.author.name+" : ")
-                        for i in range(len(message.attachments)):
-                            print(message.attachments[i].url)
-                            channel = client.get_channel(702387567546466304)
-                            await channel.send(message.content)#관리자에게 메세지가 가는 방식.
+                        await channel.send(message.content)#관리자에게 메세지가 가는 방식.
                     return
         for j in range(1,100):
             if sheet["A"+str(j)].value==None:
@@ -66,6 +67,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     print(message.author.name+"("+str(message.author.id)+") : "+message.content)
                     channel = client.get_channel(702387567546466304)
                     await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
+                    return
                 else:
                     print(message.author.name+"("+str(message.author.id)+") : ")
                     channel = client.get_channel(702387567546466304)
@@ -74,6 +76,6 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         print(message.attachments[i].url)
                         channel = client.get_channel(702387567546466304)
                         await channel.send(message.attachments[i].url)#관리자에게 메세지가 가는 방식.
-                return
+                    return
 access_token=os.environ["BOT_TOKEN"]
 client.run(access_token) # 아까 넣어놓은 토큰 가져다가 봇을 실행하라는 부분입니다. 이 코드 없으면 구문이 아무리 완벽해도 실행되지 않습니다.
