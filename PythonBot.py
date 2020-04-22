@@ -71,7 +71,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     channel = client.get_channel(558908366739734530)
                     await channel.send(message.author.name+" : ")
                     for i in range(len(message.attachments)):
-                        print(message.attachments[i].url)
+                        print(message.attachments[i].http)
                         channel = client.get_channel(558908366739734530)
                         await channel.send(message.attachments[i])#관리자에게 메세지가 가는 방식.
                 return
