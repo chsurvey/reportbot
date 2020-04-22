@@ -6,7 +6,6 @@ import os
 import openpyxl
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
-int Channel_id
 
 @client.event
 async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니다.
@@ -30,7 +29,7 @@ async def on_message(message):
 async def on_message(message): # 메시지가 들어 올 때마다 가동되는 구문입니다.
     if(message.author.bot):
         return
-    if(Channel_id==0) and (message.channel.type is discord.ChannelType.private):
+    if(Channel_id==None) and (message.channel.type is discord.ChannelType.private):
         print(Channel_id)
         await message.channel.send("목표 채널 설정이 되지 않았습니다")
         return
