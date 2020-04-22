@@ -6,7 +6,6 @@ import os
 import openpyxl
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
-Channel_id=os.environ["CHANNEL_ID"]
 
 @client.event
 async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니다.
@@ -47,14 +46,17 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     await message.channel.send('접수완료')
                     if not message.attachments:
                         print(message.author.name+"("+str(message.author.id)+") : "+message.content)
+                        Channel_id=os.environ["CHANNEL_ID"]
                         channel = client.get_channel(Channel_id)
                         await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                     else:
                         print(message.author.name+"("+str(message.author.id)+") : ")
+                        Channel_id=os.environ["CHANNEL_ID"]
                         channel = client.get_channel(Channel_id)
                         await channel.send(message.author.name+" : ")
                         for i in range(len(message.attachments)):
                             print(message.attachments[i].url)
+                            Channel_id=os.environ["CHANNEL_ID"]
                             channel = client.get_channel(Channel_id)
                             await channel.send(message.content)#관리자에게 메세지가 가는 방식.
                     return
@@ -66,15 +68,18 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 await message.channel.send('접수완료')
                 if not message.attachments:
                     print(message.author.name+"("+str(message.author.id)+") : "+message.content)
+                    Channel_id=os.environ["CHANNEL_ID"]
                     channel = client.get_channel(Channel_id)
                     await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                     return
                 else:
                     print(message.author.name+"("+str(message.author.id)+") : ")
+                    Channel_id=os.environ["CHANNEL_ID"]
                     channel = client.get_channel(Channel_id)
                     await channel.send(message.author.name+" : ")
                     for i in range(len(message.attachments)):
                         print(message.attachments[i].url)
+                        Channel_id=os.environ["CHANNEL_ID"]
                         channel = client.get_channel(Channel_id)
                         await channel.send(message.attachments[i].url)#관리자에게 메세지가 가는 방식.
                     return
