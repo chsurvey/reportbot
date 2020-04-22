@@ -6,6 +6,7 @@ import os
 import openpyxl
 
 client = discord.Client() # discord.Client() 같은 긴 단어 대신 client를 사용하겠다는 선언입니다.
+Channel_id=0
 
 @client.event
 async def on_ready(): # 봇이 준비가 되면 1회 실행되는 부분입니다.
