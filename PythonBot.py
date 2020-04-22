@@ -30,7 +30,7 @@ async def on_message(message):
 async def on_message(message): # 메시지가 들어 올 때마다 가동되는 구문입니다.
     if(message.author.bot):
         return
-    if(Channel_id==0):
+    if(Channel_id==0) and (message.channel.type is discord.ChannelType.private):
         print(Channel_id)
         await message.channel.send("목표 채널 설정이 되지 않았습니다")
         return
