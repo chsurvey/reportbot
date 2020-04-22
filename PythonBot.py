@@ -45,15 +45,15 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         await message.channel.send('접수완료')
                         if not message.attachments:
                             print(message.author.name+"("+str(message.author.id)+") : "+message.content)
-                            channel = client.get_channel(558908366739734530)
+                            channel = client.get_channel(702387567546466304)
                             await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                         else:
                             print(message.author.name+"("+str(message.author.id)+") : ")
-                            channel = client.get_channel(558908366739734530)
+                            channel = client.get_channel(702387567546466304)
                             await channel.send(message.author.name+" : ")
                             for i in range(len(message.attachments)):
                                 print(message.attachments[i].url)
-                                channel = client.get_channel(558908366739734530)
+                                channel = client.get_channel(702387567546466304)
                                 await channel.send(message.content)#관리자에게 메세지가 가는 방식.
                         return
         for j in range(1,100):
@@ -64,15 +64,15 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                 await message.channel.send('접수완료')
                 if not message.attachments:
                     print(message.author.name+"("+str(message.author.id)+") : "+message.content)
-                    channel = client.get_channel(558908366739734530)
+                    channel = client.get_channel(702387567546466304)
                     await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
                 else:
                     print(message.author.name+"("+str(message.author.id)+") : ")
-                    channel = client.get_channel(558908366739734530)
+                    channel = client.get_channel(702387567546466304)
                     await channel.send(message.author.name+" : ")
                     for i in range(len(message.attachments)):
                         print(message.attachments[i].url)
-                        channel = client.get_channel(558908366739734530)
+                        channel = client.get_channel(702387567546466304)
                         await channel.send(message.attachments[i].url)#관리자에게 메세지가 가는 방식.
                 return
 access_token=os.environ["BOT_TOKEN"]
