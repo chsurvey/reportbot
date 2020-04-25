@@ -48,7 +48,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         print(message.author.name+"("+str(message.author.id)+") : "+message.content)
                         Channel_id=os.environ["CHANNEL_ID"]
                         channel = client.get_channel(int(Channel_id))
-                        await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
+                        await channel.send(message.author.name+"("+str(message.author.id)+") : "+message.content)#관리자에게 메세지가 가는 방식.
                     else:
                         print(message.author.name+"("+str(message.author.id)+") : ")
                         Channel_id=os.environ["CHANNEL_ID"]
@@ -58,7 +58,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                             print(message.attachments[i].url)
                             Channel_id=os.environ["CHANNEL_ID"]
                             channel = client.get_channel(int(Channel_id))
-                            await channel.send(message.content)#관리자에게 메세지가 가는 방식.
+                            await channel.send(message.author.name+"("+str(message.author.id)+") : "+message.content)#관리자에게 메세지가 가는 방식.
                     return
         for j in range(1,100):
             if sheet["A"+str(j)].value==None:
@@ -70,13 +70,13 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                     print(message.author.name+"("+str(message.author.id)+") : "+message.content)
                     Channel_id=os.environ["CHANNEL_ID"]
                     channel = client.get_channel(int(Channel_id))
-                    await channel.send(message.author.name+" : "+message.content)#관리자에게 메세지가 가는 방식.
+                    channel.send(message.author.name+"("+str(message.author.id)+") : "+message.content)#관리자에게 메세지가 가는 방식.
                     return
                 else:
                     print(message.author.name+"("+str(message.author.id)+") : ")
                     Channel_id=os.environ["CHANNEL_ID"]
                     channel = client.get_channel(int(Channel_id))
-                    await channel.send(message.author.name+" : ")
+                    channel.send(message.author.name+"("+str(message.author.id)+") : ")
                     for i in range(len(message.attachments)):
                         print(message.attachments[i].url)
                         Channel_id=os.environ["CHANNEL_ID"]
