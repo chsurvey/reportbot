@@ -84,7 +84,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
                         await channel.send(message.attachments[i].url)#관리자에게 메세지가 가는 방식.
                     return
     if message.content.startswith('!답장'):
-        user = client.get.user(message.content[4:22])
+        user = client.get_user(int(message.content[4:22]))
         channel = cliend.create_dm(user)
         await channel.send("답변 : "+str(message.content[23:]))     
 access_token=os.environ["BOT_TOKEN"]
