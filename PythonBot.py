@@ -86,7 +86,6 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
     if message.content.startswith('!답장'):
         user = get.user(message.content[4:22])
         channel = cliend.create_dm(user)
-        await channel.send("답변 : "+str(message.content[23:])
-        
+        await channel.send("답변 : "+str(message.content[23:]))     
 access_token=os.environ["BOT_TOKEN"]
 client.run(access_token) # 아까 넣어놓은 토큰 가져다가 봇을 실행하라는 부분입니다. 이 코드 없으면 구문이 아무리 완벽해도 실행되지 않습니다.
