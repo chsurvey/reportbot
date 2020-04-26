@@ -86,7 +86,7 @@ async def on_message(message): # 메시지가 들어 올 때마다 가동되는 
     if message.content.startswith('!답장'):
         user = client.get_user(int(message.content[4:22]))
         await user.create_dm()
-        await message.channel.send(str(user.name+"에게 : "+str(message.content[23:]))
+        await message.channel.send(str(user.name)+"에게 : "+str(message.content[23:]))
         channel = user.dm_channel
         await channel.send("답변 : "+str(message.content[23:]))    
 access_token=os.environ["BOT_TOKEN"]
